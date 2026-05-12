@@ -1,26 +1,25 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Retangulo
 {
-    internal class Retangulo
+    internal class Program
     {
-        public double Largura;
-        public double Altura;
+        static void Main(string[] args)
+        {
+            Retangulo ret = new Retangulo();
 
-        public double Area()
-        {
-            return Largura * Altura;
-        }
-        public double Perimetro()
-        {
-            return 2*(Largura + Altura);
-        }
-        public double Diagonal()
-        {
-            return Math.Sqrt(Largura * Largura + Altura * Altura);
-        }
+            Console.WriteLine("Entre com a Largura e Altura o Retangulo: ");
+            ret.Largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            ret.Altura = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
 
+            Console.WriteLine("AREA = " + ret.Area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("PARIMETRO = " + ret.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("DIAGONAL = " + ret.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
