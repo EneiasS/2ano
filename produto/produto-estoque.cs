@@ -29,3 +29,40 @@ namespace ProdutoEstoqueOk
         }
     }
 }
+
+
+
+namespace ProdutoEstoqueOk
+{
+    internal class Produto
+    {
+        public string Nome;
+        public double Preco;
+        public int Quantidade;
+
+        public double ValorTotalEmEstoque()
+        {
+            return Preco * Quantidade;
+        }
+        public void AdicionarProutos(int quantidade)
+        {
+            Quantidade += quantidade;
+        }
+
+        public void RemoverProduto(int quantiade)
+        {
+            Quantidade -= quantiade;
+        }
+        public override string ToString()
+        {
+            return Nome
+                + ", $ "
+                + Preco.ToString("F2", CultureInfo.InvariantCulture)
+                + ", "
+                + Quantidade
+                + " unidades, Total: $"
+                + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture)
+        }
+
+    }
+}
