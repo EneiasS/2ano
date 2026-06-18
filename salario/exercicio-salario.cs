@@ -23,3 +23,30 @@ namespace exercicio_salario
         }
     }
 }
+
+
+
+namespace exercicio_salario
+{
+    internal class Funcionario
+    {
+        public string Nome;
+        public double SalarioBruto;
+        public double Imposto;
+
+        public double SalarioLiquido ()
+        {
+            return SalarioBruto - Imposto;
+        }
+        public void AumentoSalario(double porcntagem)
+        {
+            SalarioBruto = SalarioBruto + (SalarioBruto * porcntagem / 100);
+        }
+        public override string ToString()
+        {
+            return Nome
+                + ", R$"
+                +SalarioLiquido().ToString("F2", CultureInfo.InvariantCulture);
+        }
+    }
+}
